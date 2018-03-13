@@ -4,14 +4,15 @@ package com.seprid.beans;
 import com.seprid.entity.Book;
 
 import javax.ejb.Stateless;
-import javax.json.*;
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonReader;
 import javax.json.stream.JsonGenerator;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.ArrayList;
-import java.util.List;
 
 
 @Stateless

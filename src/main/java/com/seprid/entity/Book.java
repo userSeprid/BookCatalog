@@ -10,9 +10,7 @@ import javax.persistence.NamedQuery;
         query ="SELECT b FROM Book b " +
         "order by b.id")
 
-/**
- * That an entity =(
- */
+
 @Entity
 public class Book {
 
