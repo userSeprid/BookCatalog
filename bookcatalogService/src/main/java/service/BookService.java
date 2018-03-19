@@ -1,14 +1,12 @@
-package com.seprid.services;
+package service;
 
 
 import com.seprid.beans.BookServiceBean;
-import com.seprid.entity.Book;
 
 import javax.ejb.EJB;
 import javax.json.JsonObject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.List;
 
 
 @Path("/book")

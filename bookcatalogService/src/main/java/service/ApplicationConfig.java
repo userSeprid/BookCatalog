@@ -1,10 +1,7 @@
-package com;
-
+package service;
 
 import com.seprid.oldClasses.Book;
 import com.seprid.services.BookService;
-import com.seprid.oldClasses.PathTemplate;
-import com.seprid.oldClasses.SimpleLoginAndPasswordRequest;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

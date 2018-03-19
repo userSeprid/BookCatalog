@@ -1,21 +1,7 @@
-package com.seprid.entity;
+package bookDTO;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
-
-
-@NamedQuery(name ="getAllBooks",
-        query ="SELECT b FROM Book b " +
-        "order by b.id")
-
-
-@Entity
 public class Book {
 
-
-    @Id @GeneratedValue
     private Integer id;
     private String title;
     private Integer price;
@@ -24,9 +10,10 @@ public class Book {
     private Integer nbOfPage;
     private Boolean illustrations;
 
-    public Book() {}
 
-    public Book(String description, Boolean illustrations, String isbn, Integer nbOfPage, Integer price, String title) {
+    public Book(Integer id, String description, Boolean illustrations,
+                String isbn, Integer nbOfPage, Integer price, String title) {
+        this.id = id;
         this.title = title;
         this.price = price;
         this.description = description;
@@ -34,8 +21,6 @@ public class Book {
         this.nbOfPage = nbOfPage;
         this.illustrations = illustrations;
     }
-
-
 
     public Integer getId() {
         return id;
@@ -91,18 +76,5 @@ public class Book {
 
     public void setIllustrations(Boolean illustrations) {
         this.illustrations = illustrations;
-    }
-
-    @Override
-    public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", price=" + price +
-                ", description='" + description + '\'' +
-                ", isbn='" + isbn + '\'' +
-                ", nbOfPage=" + nbOfPage +
-                ", illustrations=" + illustrations +
-                '}';
     }
 }

@@ -1,7 +1,7 @@
-package com.seprid.beans;
+package beans;
 
 
-import com.seprid.entity.Book;
+import bookDTO.Book;
 
 import javax.ejb.Stateless;
 import javax.json.Json;
@@ -62,13 +62,13 @@ public class BookServiceBean {
 
     public Book converterJsonToBook(JsonObject json) {
 
-        Book book = new Book(json.get("description").toString(),
+        Book book = new Book(Integer.parseInt(json.get("id").toString()),
+                json.get("description").toString(),
                 Boolean.valueOf(json.get("illustrations").toString()),
                 json.get("isbn").toString(),
                 Integer.parseInt(json.get("nbOfPages").toString()),
                 Integer.parseInt(json.get("price").toString()),
                 json.get("title").toString());
-        book.setId(Integer.parseInt(json.get("id").toString()));
         return book;
     }
 
