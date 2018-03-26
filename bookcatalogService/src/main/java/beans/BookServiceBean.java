@@ -1,7 +1,9 @@
 package beans;
 
 
-import bookDTO.Book;
+import bookDTO.BookDTO;
+import entity.Book;
+import org.springframework.beans.BeanUtils;
 
 import javax.ejb.Stateless;
 import javax.json.Json;
@@ -29,23 +31,31 @@ public class BookServiceBean {
 
     public void updateBook(JsonObject bookData) {
 
-        Book book = converterJsonToBook(bookData);
-        em.merge(book);
-
-
+        Book book = null;
+        BeanUtils.copyProperties(converterJsonToBookDTO(bookData), book);
+        if (book != null) {
+            em.merge(book);
+        }
     }
 
 
     public void createBook(JsonObject bookData) {
-        Book book = converterJsonToBook(bookData);
-        book.setId(null);
-        em.persist(book);
+        Book book = null;
+        BeanUtils.copyProperties(converterJsonToBookDTO(bookData), book);
+        //book.setId(null);
+        //Problem can be here
+        if (book != null) {
+            em.persist(book);
+        }
     }
 
 
     public void removeBook(JsonObject bookData) {
-        Book book = converterJsonToBook(bookData);
-        em.remove(em.find(Book.class, book.getId()));
+        Book book = null;
+        BeanUtils.copyProperties(converterJsonToBookDTO(bookData), book);
+        if (book != null) {
+            em.remove(em.find(Book.class, book.getId()));
+        }
     }
 
     public JsonObject converterBookToJson(Book book) {
@@ -60,9 +70,9 @@ public class BookServiceBean {
                 .build();
     }
 
-    public Book converterJsonToBook(JsonObject json) {
+    public BookDTO converterJsonToBookDTO(JsonObject json) {
 
-        Book book = new Book(Integer.parseInt(json.get("id").toString()),
+        BookDTO book = new BookDTO(Integer.parseInt(json.get("id").toString()),
                 json.get("description").toString(),
                 Boolean.valueOf(json.get("illustrations").toString()),
                 json.get("isbn").toString(),

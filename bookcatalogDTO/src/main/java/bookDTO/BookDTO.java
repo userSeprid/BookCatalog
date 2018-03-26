@@ -1,6 +1,6 @@
 package bookDTO;
 
-public class Book {
+public class BookDTO {
 
     private Integer id;
     private String title;
@@ -11,8 +11,8 @@ public class Book {
     private Boolean illustrations;
 
 
-    public Book(Integer id, String description, Boolean illustrations,
-                String isbn, Integer nbOfPage, Integer price, String title) {
+    public BookDTO(Integer id, String description, Boolean illustrations,
+                   String isbn, Integer nbOfPage, Integer price, String title) {
         this.id = id;
         this.title = title;
         this.price = price;

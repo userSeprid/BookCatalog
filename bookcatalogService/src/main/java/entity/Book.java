@@ -7,8 +7,7 @@ import javax.persistence.NamedQuery;
 
 
 @NamedQuery(name ="getAllBooks",
-        query ="SELECT b FROM Book b " +
-        "order by b.id")
+        query ="SELECT b FROM Book b order by b.id")
 
 
 @Entity
@@ -95,7 +94,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
+        return "BookDTO{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", price=" + price +

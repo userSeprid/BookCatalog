@@ -1,7 +1,8 @@
 package service;
 
 
-import com.seprid.beans.BookServiceBean;
+
+import beans.BookServiceBean;
 
 import javax.ejb.EJB;
 import javax.json.JsonObject;

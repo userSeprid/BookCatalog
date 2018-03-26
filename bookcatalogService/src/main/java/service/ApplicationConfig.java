@@ -1,7 +1,5 @@
 package service;
 
-import com.seprid.oldClasses.Book;
-import com.seprid.services.BookService;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
@@ -15,7 +13,6 @@ public class ApplicationConfig extends Application{
 
     public ApplicationConfig() {
         HashSet<Class<?>> c = new HashSet<>();
-        c.add(Book.class);
         c.add(BookService.class);
         classes = Collections.unmodifiableSet(c);
     }
